@@ -1,0 +1,42 @@
+MODELS
+
+Models are just classes that contain data. These classes represent objects on which the business
+logic classes will operate. There are several ways to get models:
+
+1. Plain Old Class Object (POCOs):
+2. Entity Framework
+3. Data From a Service: for instance, a Web API project.
+
+
+VIEWMODELS
+
+Generally, you do not want to pass model data directly from the source (which can come from one of 
+POCOs, Entity Framework or a Service) to the View. Regardless of the source of the models, here is 
+a best practice to follow even if you don't immediately need it: Use ViewModel objects to pass 
+model data to Views.
+
+In WPF applications, a ViewModel is an interactive intermediary that sits between the View and the 
+Model. ASP.NET Core ViewModels are different from WPF ViewModels; in ASP.NET Core/MVC, a ViewModel 
+serves only as a container for data necessary for the View. A ViewModel class is an intermediary that 
+occupies the space between a Model and a View. 
+
+ViewModels are useful for two reasons:
+
+1. The View() method can accept only one Model object. If you have several models to send to the 
+   View, you can package them as properties in a ViewModel class and send that instead.
+
+2. ViewModels also let you tailor model data to fit the View. The View should not contain model 
+   data it doesn't need. Through the use a ViewModel, you can abstract away unnecessary model data.
+
+Even if you have only one model to send to a View right now, it would be prudent to use a ViewModel 
+instead. If you are directly passing a Model to the View and the requirements change, requiring two 
+or more models per View, you will have to refactor your code to use a ViewModel. 
+
+There is a naming conventions for ViewModels:
+
+    Controller Name + Action Name + "ViewModel"
+
+Therefore, the viewmodel for the Index() action in the Home Controller will be called 
+'HomeIndexViewModel.cs'.
+
+For more information on Models and Views, see the project 'ASPNETCore Lesson 1 - Introduction'.
