@@ -26,6 +26,10 @@ namespace Common.Models
         public int RoomTypeId { get; set; }             // Foreign Key to the RoomType Table.
         public decimal NightlyRate { get; set; }
 
+        // Note: If you use the term 'virtual' for a property in a Model class, it tells EF Core 
+        // that this property is a Navigation property. A Navigation property is a pointer 
+        // that leads from one entity to another. You can use dot-notation from the
+        // navigation property of one entity to peek at other entities.
         public virtual RoomType RoomType { get; set; }
         public virtual BedType BedType { get; set; }
 
