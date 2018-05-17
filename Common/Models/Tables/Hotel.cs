@@ -18,6 +18,11 @@ namespace Common.Models
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
 
+        // Note: If you use the term 'virtual' for a property in a Model class, it tells EF Core 
+        // that this property is a Navigation property. A Navigation property is a pointer 
+        // that leads from one entity to another. You can use dot-notation from the
+        // navigation property of one entity to peek at other entities.
+        //
         // Hotel Objects have a HotelRooms property to track the list of hotelrooms at a hotel
         // without needing to query the database.
         public virtual IEnumerable<HotelRoom> HotelRooms { get; set; }
