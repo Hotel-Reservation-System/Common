@@ -14,8 +14,17 @@ namespace Common.Models
         [Key]
         public int Id { get; set; }
 
-        // Names for each Bed Size. (King, CalKing, Queen, Twin Extra Long, Full Extra Long, 
-        // Twin Size, Full Size etc.)
+        // Names for each Bed Size. Examples:
+        // 
+        // SINGLE BEDS:
+        // 1) Small Beds: Small Single, Small Single Long.
+        // 2) Standard Beds: Standard Single, Standard Single Long.
+        // 3) Premium Beds: Full Size. 
+        //
+        // DOUBLE BEDS:
+        // 1) Small beds: Small Double.
+        // 2) Standard Beds: Standard Double, 
+        // 3) Premium Beds: Queen, King, Emperor 
         [Key]
         public string Name { get; set; }
     }

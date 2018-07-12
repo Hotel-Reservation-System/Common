@@ -14,8 +14,14 @@ namespace Common.Models
         [Key]
         public int Id { get; set; }
 
-        // Names for each Room Type. (E.g. Value Suite (Single/Double), Dexluxe Suite (Single/Double), 
-        // Honeymoon Suite, Presidential Suite etc.)
+        // Names for each Room Type. Examples:
+        //
+        // 1) REGULAR SUITES: Single Suite, Twin Suite, Triple Suite, Quad Suite for 1, 2, 3
+        //    and 4 persons respectively.
+        // 2) SPECIAL SUITES: Apartment Suite (for long term guests), Accessibility Suite
+        //    (for disabled guests), Smoking Suites.
+        // 3) PREMIUM SUITES: Executive Suite, Honeymoon Suite, Cabana Rooms
+        //    (Rooms with attached private pool), Presidential Suite etc.)
         [Key]
         public string Name { get; set; }
     }

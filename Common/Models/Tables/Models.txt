@@ -17,8 +17,8 @@ model data to Views.
 
 In WPF applications, a ViewModel is an interactive intermediary that sits between the View and the 
 Model. ASP.NET Core ViewModels are different from WPF ViewModels; in ASP.NET Core/MVC, a ViewModel 
-serves only as a container for data necessary for the View. A ViewModel class is an intermediary that 
-occupies the space between a Model and a View. 
+serves only as a container for data necessary for the View. A ViewModel class is an intermediary 
+that occupies the space between a Model and a View. 
 
 ViewModels are useful for two reasons:
 
@@ -39,4 +39,4 @@ There is a naming conventions for ViewModels:
 Therefore, the viewmodel for the Index() action in the Home Controller will be called 
 'HomeIndexViewModel.cs'.
 
-For more information on Models and Views, see the project 'ASPNETCore Lesson 1 - Introduction'.
+For more information on Models and Views, see the project 'ASPNETCore WebApp 1A - Routing'.

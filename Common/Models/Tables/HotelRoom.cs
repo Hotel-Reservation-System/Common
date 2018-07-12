@@ -11,10 +11,21 @@ namespace Common.Models
     /// </summary>
     public class HotelRoom : IObjectWithState
     {
-        // Note that a composite key is a primary key on two or more columns. It enforces 
-        // uniqueness on several columns.
+        [NotMapped]
+        public ObjectState State { get; set; }
+        
+        
+        // COMPOSITE KEY
+        // 
+        // This table uses HotelId + RoomNumber to uniquely identify a room. Therefore, this 
+        // table uses a composite key. A composite key is a primary key that is comprised of
+        // two or more attributes. It enforces uniqueness through the use of several columns.
+        // 
+        // As two hotels could have the same hotel room numbers, using both HotelId and
+        // RoomNumber attributes should create a unique ID, i.e. a unique way to identify a given
+        // room at a hotel from all other hotel rooms in the database. 
         [Key]
-        public long RoomNumber { get; set; } // This + HotelId = Composite Key
+        public long RoomNumber { get; set; }            // This + HotelId = Composite Key
         [Key]
         public long HotelId { get; set; }               // Foreign Key to the Hotel Table.
 
@@ -26,25 +37,21 @@ namespace Common.Models
         public int RoomTypeId { get; set; }             // Foreign Key to the RoomType Table.
         public decimal NightlyRate { get; set; }
 
-        // Note: If you use the term 'virtual' for a property in a Model class, it tells EF Core 
-        // that this property is a Navigation property. A Navigation property is a pointer 
-        // that leads from one entity to another. You can use dot-notation from the
-        // navigation property of one entity to peek at other entities.
-        public virtual RoomType RoomType { get; set; }
-        public virtual BedType BedType { get; set; }
-
+        // NAVIGATION PROPERTIES
+        
         // Every HotelRoom has a Hotel property that lists information about the the Hotel that
         // owns this hotelroom. Why does this property exist when a query to the database can 
         // return the owner of a given hotelroom? Precisely to skip a queries to the database, 
         // which can become expensive if done for many HotelRoom objects.
         public virtual Hotel Hotel { get; set; }
 
+        
         // For the same reason as the Hotel property, HotelRoom has a RoomReservations property
         // that lists all the reservations for this room.
         public virtual IEnumerable<RoomReservation> RoomReservations { get; set; }
-
-
-        [NotMapped]
-        public ObjectState State { get; set; }
+        
+        
+        public virtual RoomType RoomType { get; set; }
+        public virtual BedType BedType { get; set; }
     }
 }
